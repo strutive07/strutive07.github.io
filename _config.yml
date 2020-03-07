@@ -84,14 +84,14 @@ toc:
 ## => Markdown Enhancements
 ##############################
 ## Mathjax
-mathjax: # false (default), true
-mathjax_autoNumber: # false (default), true
+mathjax: true
+mathjax_autoNumber: true
 
 ## Mermaid
-mermaid: # false (default), true
+mermaid: true
 
 ## Chart
-chart: # false (default), true
+chart: true
 
 
 ## => Paginate
