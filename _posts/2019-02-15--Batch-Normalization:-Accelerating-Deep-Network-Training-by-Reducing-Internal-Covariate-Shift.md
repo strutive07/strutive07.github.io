@@ -1,11 +1,11 @@
 ---
-title:  Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
+title: Batch Normalization. Accelerating Deep Network Training by Reducing Internal Covariate Shift
 tags: paper_review
 mathjax: true
 ---
 
-- ICML 2015
-- Sergey Ioffe, Christian Szegedy
+ICML 2015
+Sergey Ioffe, Christian Szegedy
 
 Google Inc.
 
