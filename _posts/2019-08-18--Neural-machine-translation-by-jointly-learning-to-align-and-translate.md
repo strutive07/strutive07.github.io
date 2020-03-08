@@ -11,7 +11,7 @@ mathjax: true
 
 이 논문에서 중심적으로 다룬 문제는 바로 context vector 그 자체 이다, seq2seq 에서 encoder 와 decoder 를 이어주는 context vector 가 fixed size vector 이고, 가장 마지막 hidden state 만 사용하므로 이 하나의 vector 에 time 에 따른 dynamic 한 정보를 담을 수 없다 라고 한다.
 
-![1566090056649](https://strutive07.github.io/assets/images/til_images/1566090056649.png)
+![1566090056649](https://strutive07.github.io/assets/images/til_images/images/1566090056649.png)
 
 생각해보면 맞는 말이다.
 
@@ -42,23 +42,23 @@ mathjax: true
 
 다시 seq2seq 를 복습하고 가봅시다.
 
-![basic_seq2seq](https://strutive07.github.io/assets/images/til_images/basic_seq2seq.png)
+![basic_seq2seq](https://strutive07.github.io/assets/images/til_images/images/basic_seq2seq.png)
 
 
 
-![1566127117339](https://strutive07.github.io/assets/images/til_images/1566127117339.png)
+![1566127117339](https://strutive07.github.io/assets/images/til_images/images/1566127117339.png)
 
 각 time 에서 하나씩 input 이 존재한다고 가정해봅시다.
 
-![1566127141259](https://strutive07.github.io/assets/images/til_images/1566127141259.png)
+![1566127141259](https://strutive07.github.io/assets/images/til_images/images/1566127141259.png)
 
 encoder 에서는 기본적인 RNN 연산을 통해 h_1 ~ h_t 의 hidden state 가 만들어질 것 입니다.
 
-![1566127192141](https://strutive07.github.io/assets/images/til_images/1566127192141.png)
+![1566127192141](https://strutive07.github.io/assets/images/til_images/images/1566127192141.png)
 
 기존 seq2seq 모델에서는 모든 hidden state 의 결과를 하나의 context vector 에 압축하여 정보를 저장하였습니다.
 
-![1566127230848](https://strutive07.github.io/assets/images/til_images/1566127230848.png)
+![1566127230848](https://strutive07.github.io/assets/images/til_images/images/1566127230848.png)
 
 최종적으로, generate 시에는 이전 decoder rnn cell 의 hidden state, output, 그리고 context vector를 기반으로 다음 hidden state, output 을 만들어냈습니다. 이 확률을 조건부확률곱으로 나타내보면 위와같이 정리할 수 있습니다.
 
@@ -68,7 +68,7 @@ encoder 에서는 기본적인 RNN 연산을 통해 h_1 ~ h_t 의 hidden state �
 
 
 
-![1566127554686](https://strutive07.github.io/assets/images/til_images/1566127554686.png)
+![1566127554686](https://strutive07.github.io/assets/images/til_images/images/1566127554686.png)
 
 이 논문에서 기존 seq2seq 와 차이점은 크게 2가지로, 우리가 가장 집중해서 봐야할 attention mechanism, 그리고 bidirection rnn (biRNN) 입니다.
 
@@ -78,7 +78,7 @@ encoder 에서는 기본적인 RNN 연산을 통해 h_1 ~ h_t 의 hidden state �
 
 ### Attention mechanism
 
-![bahdanau_attention](https://strutive07.github.io/assets/images/til_images/bahdanau_attention.png)
+![bahdanau_attention](https://strutive07.github.io/assets/images/til_images/images/bahdanau_attention.png)
 
 우선, 이 논문의 attention score 를 구하는 방식을 bahdanau attention 이라고 합니다.
 
@@ -96,7 +96,7 @@ decoder time t 에서 하나의 새로운 word 를 만들어야 한다고 가정
 
 위 그림을 그려보았는데요, 위 그림을 보면 attention score 라는것을 계산합니다.
 
-![bahdanau_attention_score](https://strutive07.github.io/assets/images/til_images/bahdanau_attention_score.PNG)
+![bahdanau_attention_score](https://strutive07.github.io/assets/images/til_images/images/bahdanau_attention_score.PNG)
 
 decoder t-1 의 hidden state 와 encoder 의 모든 hidden state 에 대하여 각각 위와같은 수식으로 attention score 를 계산합니다. 여기서 v, W, U 는 learnable parameter 입니다.
 
@@ -120,7 +120,7 @@ decoder t-1 의 hidden state 와 encoder 의 모든 hidden state 에 대하여 �
 
 ## biRNN
 
-![attention-birnn](https://strutive07.github.io/assets/images/til_images/attention-birnn.png)
+![attention-birnn](https://strutive07.github.io/assets/images/til_images/images/attention-birnn.png)
 
 encoder 부분을 보면 seq2seq 에서 보지 못한 부분이 있습니다. 바로 biRNN 으로 변했다는 것인데요.
 
@@ -134,7 +134,7 @@ encoder 에서 biRNN 을 사용하였다는것은, translation 을 진행할 때
 
 이 논문에서는 단순하게 concat 하여 사용하였습니다.
 
-![1566129428296](https://strutive07.github.io/assets/images/til_images/1566129428296.png)
+![1566129428296](https://strutive07.github.io/assets/images/til_images/images/1566129428296.png)
 
 
 
@@ -146,10 +146,10 @@ encoder 에서 biRNN 을 사용하였다는것은, translation 을 진행할 때
 
 seq2seq with attention 은 긴 문장에서도 좋은 성능을 보여줍니다.
 
-![1566129534894](https://strutive07.github.io/assets/images/til_images/1566129534894.png)
+![1566129534894](https://strutive07.github.io/assets/images/til_images/images/1566129534894.png)
 
 
 
 또한, attention 은 attention alignment 를 시각화 하면 다음과같이 어떤 input 에 집중하였는지 알 수 있다.
 
-![1566129555893](https://strutive07.github.io/assets/images/til_images/1566129555893.png)
+![1566129555893](https://strutive07.github.io/assets/images/til_images/images/1566129555893.png)

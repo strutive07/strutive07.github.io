@@ -47,7 +47,7 @@ Transformer 는 attention-weighted position 을 averaging 해서 위의 operatio
 
 Self-attention 은 하나의 sequence 에서 다른 두 position을 연결해주는 역활을 한다. 
 
-![1566648238710](https://strutive07.github.io/assets/images/til_images/1566648238710.png)
+![1566648238710](https://strutive07.github.io/assets/images/til_images/images/1566648238710.png)
 
 위 그림은 encoder 의 6개의 layer 중 5번 째 layer 의 self-attention 을 시각화 한것이다.
 
@@ -59,13 +59,13 @@ Self-attention 은 하나의 sequence 에서 다른 두 position을 연결해주
 
 
 
-![transformer0](https://strutive07.github.io/assets/images/til_images/transformer0.PNG)
+![transformer0](https://strutive07.github.io/assets/images/til_images/images/transformer0.PNG)
 
 transformer 는 기존의 machine translation 방식에서 많이 사용하던 encoder - decoder 방식을 사용한다.
 
 하지만 RNN 이 사용되지는 않고, self-attention 과 point-wise fully connected layer 를 stacking하여 사용한다.
 
-![transformer1](https://strutive07.github.io/assets/images/til_images/transformer1.png)
+![transformer1](https://strutive07.github.io/assets/images/til_images/images/transformer1.png)
 
 왼쪽 그림에서 빨강색 box 부분이 encoder 이고, 파랑색 box 부분이 decoder 이다.
 
@@ -77,7 +77,7 @@ decoder 는 비슷하지만 앞에 masked multi head attention 이 붙는다.
 
 ### Attention
 
-![1566648835945](https://strutive07.github.io/assets/images/til_images/1566648835945.png)
+![1566648835945](https://strutive07.github.io/assets/images/til_images/images/1566648835945.png)
 
 **Scaled Dot-Product Attention**
 
@@ -97,7 +97,7 @@ self-attention 에서도 마찬가지 입니다.
 
 `이게 encoder의 (hidden state) 와 얼마나 관계가 있어?` 는 바로 'Key - Value' 입니다. 기존 sequence 의 정보를 가지고 있죠. key-value 의 관계는 말 그대로 입니다. `{key: value}` . key 에 해당하는 값이 value 에 저장됩니다. 기존 seq2seq 에서 key-value 를 생각해봅시다.
 
-![transformer4](https://strutive07.github.io/assets/images/til_images/transformer4.PNG)
+![transformer4](https://strutive07.github.io/assets/images/til_images/images/transformer4.PNG)
 
 **주의!** 위 사진은 transformer 가 아닌, seq2seq with attention 입니다. 이해를 위해 그때 사용한 사진을 활용하여 설명합니다. [seq2seq with attention](https://github.com/strutive07/TIL/blob/master/paper_review/Neural%20machine%20translation%20by%20jointly%20learning%20to%20align%20and%20translate.md)  
 
@@ -121,13 +121,13 @@ dot product 한 결과값이 매우 클 경우 문제가 될 수 있는데, 그 
 
 최종적인 attention score function 은 다음과 같습니다.
 
-![1566650439331](https://strutive07.github.io/assets/images/til_images/1566650439331.png)
+![1566650439331](https://strutive07.github.io/assets/images/til_images/images/1566650439331.png)
 
 그 이후, value 에 attention 을 적용하면 하나의 self-attention 이 끝납니다. 이는 다음과같은 수식으로 정리할 수 있습니다.
 
-![1566650469439](https://strutive07.github.io/assets/images/til_images/1566650469439.png)
+![1566650469439](https://strutive07.github.io/assets/images/til_images/images/1566650469439.png)
 
-![transformer5](https://strutive07.github.io/assets/images/til_images/transformer5.PNG)
+![transformer5](https://strutive07.github.io/assets/images/til_images/images/transformer5.PNG)
 
 **Multi-Head Attention**
 
@@ -139,9 +139,9 @@ dot product 한 결과값이 매우 클 경우 문제가 될 수 있는데, 그 
 
 이는 방금 알아둔 scaled dot-product attention 을 병렬적으로 여러번 사용한 것 입니다.
 
-![1566654234560](https://strutive07.github.io/assets/images/til_images/1566654234560.png)
+![1566654234560](https://strutive07.github.io/assets/images/til_images/images/1566654234560.png)
 
-![1566654256785](https://strutive07.github.io/assets/images/til_images/1566654256785.png)
+![1566654256785](https://strutive07.github.io/assets/images/til_images/images/1566654256785.png)
 
 Q, K, V 에 h time 만큼 다른 Linear projection을 한 후, 각각 다른  scaled dot-product attention 에 태우는겁니다.
 
@@ -167,13 +167,13 @@ jalammar's github blog 에서 가져온 image 입니다. http://jalammar.github.
 
 자 이제 기본적인 self-attention, multi-head attention, scaled dot-product attention 을 알았으니, encoder 에 적용해봅시다.
 
-![1566654859388](https://strutive07.github.io/assets/images/til_images/1566654859388.png)
+![1566654859388](https://strutive07.github.io/assets/images/til_images/images/1566654859388.png)
 
 일단 input sequence 를 **embedding** 적용시킵니다. 그럼 이제 특정 matrix 형태의 batch 가 되었겠죠.
 
 여기서 **Positional Encoding** 이 나옵니다. 우리는 RNN을 사용하지 않았기 때문에, sequence 한 정보를 살릴 방법을 찾아야 합니다. 따라서 sequential 한 정보를 data 자체에 적용하는것이 바로 positional encoding 입니다.
 
-![1566655262694](https://strutive07.github.io/assets/images/til_images/1566655262694.png)
+![1566655262694](https://strutive07.github.io/assets/images/til_images/images/1566655262694.png)
 
 pos 는 단어의 position 이고, i 는 dimension 이다. 
 
@@ -197,7 +197,7 @@ layer 의 높이가 올라갈수록 문맥적인 의미들이 추가되게됩니
 
 ### Decoder
 
-![1566657684622](https://strutive07.github.io/assets/images/til_images/1566657684622.png)
+![1566657684622](https://strutive07.github.io/assets/images/til_images/images/1566657684622.png)
 
 Encoder 는 주어진 sequence 전체를 보고 각 시점에서 정보들이 더 좋은 representation 이 되도록 encoding 하는 역활입니다.
 
@@ -207,7 +207,7 @@ Decoder 는 현재까지 알려진 정보를 바탕으로 새로운 정보를 �
 
 따라서 미래의 정보를 masking 해주는 작업이 필요합니다.
 
-![transformer6](https://strutive07.github.io/assets/images/til_images/transformer6.PNG)
+![transformer6](https://strutive07.github.io/assets/images/til_images/images/transformer6.PNG)
 
 이 작업은 기존 encoder - decoder 모델들에서 time t 에서 새로운 정보를 생성하기위해 time t-1 까지만 정보를 사용하는 방식을 attention 으로 구현한 것 입니다.
 
@@ -233,7 +233,7 @@ encoder 와 동일하게 multi head attention 의 결과를 정리해주기 위�
 
 ## Position-wise Feed-Forward Network
 
-![1566658909167](https://strutive07.github.io/assets/images/til_images/1566658909167.png)
+![1566658909167](https://strutive07.github.io/assets/images/til_images/images/1566658909167.png)
 
 2개의 feed forward network 가 있고, 1번 layer 후 RELU 로 activation 을 해준다.
 
@@ -245,7 +245,7 @@ encoder 와 동일하게 multi head attention 의 결과를 정리해주기 위�
 
 ## Why Self-attention
 
-![1566659146144](https://strutive07.github.io/assets/images/til_images/1566659146144.png)
+![1566659146144](https://strutive07.github.io/assets/images/til_images/images/1566659146144.png)
 1. computational complexity가 낮다.
 2. 요구되는 sequential operation 의 수가 적다. 따라서 병렬화가 쉬워진다.
 3. input sequence 와 output sequence 가 길어지면 두 position 간의 거리가 먼 경우, dependency 를 학습하기 힘들어집니다. 각 position 을 연결하는 connection 의 수 가 많아질수록 dependency 를 구하기 힘들어진다. RNN 은 sequence length 만큼 connection을, CNN 은 log_k(n) 만큼 걸린다. (binary graph 를 생각하면 편하다. binary 가 아니라 kernel size 만큼의 graph가 생긴다고 생각하고, tree height 만큼 탐색시간이 걸릴것이다.)
