@@ -2,7 +2,7 @@ import os
 import shutil
 import datetime
 
-TAG_CONST = "강의 인공지능_및_기계학습"
+TAG_CONST = "강의 Convex_Optimization"
 
 
 def create_header(title: str, tag: str) -> str:
@@ -57,8 +57,8 @@ def move_dir_and_change_name(dir_path, dir_name, target_path):
 def get_last_update_date(texts):
     lines = texts.split('\n')
     for line in lines:
-        if str.startswith(line, 'last update datetime: '):
-            datetime_str = line.split('last update datetime: ')[-1]
+        if str.startswith(line, 'Update time: '):
+            datetime_str = line.split('Update time: ')[-1]
             datetime_object = datetime.datetime.strptime(datetime_str, '%b %d, %Y %I:%M %p')
             return datetime_object
 
@@ -90,6 +90,15 @@ def get_new_file_name(file_name):
     new_name = file_name.replace(' ', '.', 1)
     return new_name.replace(' ', '-')
 
-dirs = []
+dirs = [
+"/home/wonjun/문서/convex_optimization/Export-1ac3de95-29f5-4401-b834-1b9df48e08ca",
+"/home/wonjun/문서/convex_optimization/Export-03e184b9-2c56-417a-8a98-5db2d076c2e7",
+"/home/wonjun/문서/convex_optimization/Export-11bb3fcd-6690-4738-a544-9d07d0453d63",
+"/home/wonjun/문서/convex_optimization/Export-46e0122c-1997-45f4-a6b5-216e46e9adbc",
+"/home/wonjun/문서/convex_optimization/Export-78bdb209-5054-4088-8dcd-1bfc034cab9f",
+"/home/wonjun/문서/convex_optimization/Export-6332ab72-ff09-4353-8d93-5b2d7c98bbad",
+"/home/wonjun/문서/convex_optimization/Export-53911ada-9e5a-46a6-b700-52ec0bb94c74",
+"/home/wonjun/문서/convex_optimization/Export-d10edeaa-9237-4c21-ae7f-aafa7159389d",
+]
 for dir in dirs:
     change_file_to_github_pages_format(dir)
