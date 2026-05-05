@@ -1,6 +1,6 @@
 :root {
   color-scheme: light;
-  --page: #e4ecd8;
+  --page: #efe8d8;
   --paper: #fffefa;
   --paper-soft: #f8f8f3;
   --sage: #a7ba83;
@@ -109,7 +109,7 @@ img {
 .hero__photo {
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: min(100%, 306px);
   margin: clamp(34px, 5.6svh, 48px) auto clamp(33px, 4.9svh, 45px);
   aspect-ratio: 0.73 / 1;
   overflow: hidden;
@@ -297,17 +297,17 @@ img {
 
 .intro {
   padding-top: 96px;
-  background: linear-gradient(#fffefa, #fbfbf7);
+  background: linear-gradient(#fff9ef, #fffaf4);
 }
 
 .intro p {
   margin: 0 auto 22px;
-  color: #686b63;
+  color: #6b655c;
 }
 
 .intro .poem {
   margin-bottom: 34px;
-  color: #8aa06f;
+  color: #8c7865;
   font-size: 18px;
   line-height: 1.9;
 }
@@ -488,50 +488,198 @@ img {
   box-shadow: 0 10px 24px rgba(70, 77, 66, 0.1);
 }
 
-.about-section {
-  background: #f4f8ed;
+.gift-section {
+  padding-top: 72px;
+  background: #fffefa;
+  color: #22241f;
 }
 
-.profile-card {
-  margin: 0 auto 22px;
-  padding: 28px 24px 30px;
-  background: rgba(255, 255, 252, 0.78);
-  border-radius: 8px;
-  box-shadow: 0 10px 24px rgba(91, 106, 77, 0.08);
+.script-label {
+  margin: 0 0 24px;
+  color: #6f8c60;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
 }
 
-.profile-card img {
+.gift-section h2 {
+  margin-bottom: 0;
+  color: #151713;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.gift-section h2::after {
+  content: "";
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1.04;
-  object-fit: cover;
-  margin: 0 0 24px;
-  border-radius: 8px;
-  filter: saturate(0.86) contrast(0.97);
+  margin: 32px 0 40px;
+  border-top: 1px dashed #d8e1cf;
 }
 
-.profile-card:nth-of-type(1) img {
-  object-position: 55% 74%;
+.gift-message {
+  margin: 0 auto 42px;
+  color: #20221f;
+  font-size: 16px;
+  line-height: 1.9;
 }
 
-.profile-card:nth-of-type(2) img {
-  object-position: 50% 55%;
+.gift-groups {
+  display: grid;
+  gap: 10px;
 }
 
-.profile-card span {
-  display: block;
-  color: #94aa77;
+.gift-group {
+  overflow: hidden;
+  border: 1px solid #dfe5da;
+  border-radius: 6px;
+  background: #f8faf6;
+  text-align: left;
 }
 
-.profile-card h3 {
-  margin: 2px 0 18px;
-  font-size: 20px;
-  font-weight: 400;
+.gift-group summary {
+  position: relative;
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  padding: 0 44px;
+  color: #1f231d;
+  font-size: 15px;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
 }
 
-.profile-card p {
+.gift-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.gift-group summary::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid #6f8c60;
+  border-bottom: 1.5px solid #6f8c60;
+  transform: translateY(-65%) rotate(45deg);
+}
+
+.gift-group[open] summary::after {
+  transform: translateY(-35%) rotate(225deg);
+}
+
+.gift-list {
+  border-top: 1px solid #e5ebe1;
+}
+
+.gift-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 18px 15px;
+}
+
+.gift-row + .gift-row {
+  border-top: 1px dashed #dfe5da;
+}
+
+.gift-row p {
+  min-width: 0;
   margin: 0;
-  color: #7f837b;
+  color: #171916;
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.55;
+}
+
+.gift-row strong {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.gift-row span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.gift-actions {
+  display: grid;
+  gap: 7px;
+}
+
+.gift-actions button {
+  width: 72px;
+  height: 32px;
+  border-radius: 8px;
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.pay-button {
+  position: relative;
+  border: 0;
+  background: #ffdc00;
+  color: #12120f;
+  font-weight: 700;
+  padding-left: 19px;
+}
+
+.pay-button::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 10px;
+  height: 8px;
+  border-radius: 50%;
+  background: #191a17;
+  transform: translateY(-50%);
+}
+
+.pay-button::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  border-top: 4px solid #191a17;
+  border-right: 4px solid transparent;
+}
+
+.copy-button {
+  position: relative;
+  border: 1px solid #e2e6dd;
+  background: #fff;
+  color: #22241f;
+  padding-left: 23px;
+}
+
+.copy-button::before,
+.copy-button::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 9px;
+  border: 1px solid #676b64;
+  border-radius: 1px;
+}
+
+.copy-button::before {
+  left: 15px;
+  top: 10px;
+  background: #fff;
+}
+
+.copy-button::after {
+  left: 18px;
+  top: 13px;
+  background: #fff;
 }
 
 .gallery-section {
@@ -758,46 +906,6 @@ img {
   margin-bottom: 0;
 }
 
-.account-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 15px 17px;
-  border-top: 1px solid var(--line);
-  text-align: left;
-}
-
-.account-row p {
-  min-width: 0;
-  margin: 0;
-  line-height: 1.55;
-}
-
-.account-row span {
-  display: block;
-  color: #888d84;
-  font-size: 13px;
-}
-
-.account-row b {
-  display: block;
-  color: #555a52;
-  font-weight: 400;
-  overflow-wrap: anywhere;
-}
-
-.account-row button {
-  flex: 0 0 auto;
-  min-width: 54px;
-  height: 34px;
-  border: 0;
-  border-radius: 999px;
-  background: #eef3e7;
-  color: #6c7b5c;
-  font-size: 13px;
-}
-
 .info-section {
   background: #f8f8f3;
   padding-bottom: calc(96px + env(safe-area-inset-bottom));
@@ -882,7 +990,7 @@ img {
 .contact-list {
   display: grid;
   gap: 10px;
-  margin-bottom: 26px;
+  margin-bottom: 0;
 }
 
 .contact-list a,
@@ -916,40 +1024,6 @@ img {
   color: #8b8f86;
   font-style: normal;
   font-size: 13px;
-}
-
-.modal-account {
-  display: grid;
-  gap: 10px;
-}
-
-.modal-account h3 {
-  margin: 10px 0 2px;
-  color: #72865c;
-  font-size: 15px;
-  font-weight: 500;
-  text-align: left;
-}
-
-.modal-account .account-row {
-  display: grid;
-  gap: 12px;
-  padding: 15px 14px;
-  border: 1px solid #edf0e8;
-  border-radius: 8px;
-  background: #fbfcf7;
-}
-
-.account-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.account-actions button {
-  width: 100%;
-  min-width: 0;
-  height: 38px;
 }
 
 .lightbox {
@@ -1035,15 +1109,6 @@ img {
 
   .countdown strong {
     font-size: 24px;
-  }
-
-  .account-row {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .account-row button {
-    align-self: flex-end;
   }
 
   .contact-list a,
