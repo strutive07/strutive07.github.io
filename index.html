@@ -133,10 +133,12 @@
           <h2>더컨벤션 반포</h2>
           <button class="address-copy" type="button" data-copy="서울 서초구 사평대로 108">서울 서초구 사평대로 108</button>
           <div class="map-frame" aria-label="더컨벤션 반포 지도">
-            <iframe
-              title="더컨벤션 반포 카카오맵"
-              loading="lazy"
-              src="https://map.kakao.com/link/map/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EB%B0%98%ED%8F%AC,37.4989026,126.9965657"></iframe>
+            <div id="daumRoughmapContainer1777973986788" class="root_daum_roughmap root_daum_roughmap_landing" data-kakao-roughmap></div>
+            <a class="kakao-static-map" href="https://map.kakao.com/?urlX=499229&urlY=1110976&itemId=598171385&q=%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EB%B0%98%ED%8F%AC%EC%A0%90&srcid=598171385&map_type=TYPE_MAP" target="_blank" rel="noopener" aria-label="카카오맵에서 더컨벤션 반포 열기">
+              <img src="https://staticmap.kakao.com/map/mapservice?FORMAT=PNG&SCALE=2&MX=499229&MY=1110976&type=roadmap&S=0&IW=640&IH=320&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo" alt="">
+              <span class="kakao-map-pin" aria-hidden="true"></span>
+            </a>
+            <a class="kakao-map-open" href="https://map.kakao.com/?urlX=499229&urlY=1110976&itemId=598171385&q=%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EB%B0%98%ED%8F%AC%EC%A0%90&srcid=598171385&map_type=TYPE_MAP" target="_blank" rel="noopener">카카오맵 열기</a>
           </div>
           <div class="map-actions">
             <a href="https://map.kakao.com/link/search/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EB%B0%98%ED%8F%AC" target="_blank" rel="noopener">카카오맵</a>
@@ -247,6 +249,17 @@
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
     <div id="youtube-player" aria-hidden="true"></div>
+    <script>
+      window.daum = window.daum || {};
+      window.daum.roughmap = {
+        phase: "prod",
+        cdn: "207038f2_1774248312945",
+        URL_KEY_DATA_LOAD_PRE: "https://t1.kakaocdn.net/roughmap/",
+        url_protocal: "https:",
+        url_cdn_domain: "//t1.kakaocdn.net"
+      };
+    </script>
+    <script src="https://t1.kakaocdn.net/kakaomapweb/roughmap/place/prod/207038f2_1774248312945/roughmapLander.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

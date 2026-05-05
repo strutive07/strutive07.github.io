@@ -591,19 +591,118 @@ img {
 }
 
 .map-frame {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1 / 0.82;
+  aspect-ratio: 2 / 1;
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--line);
   background: #eef2e8;
 }
 
-.map-frame iframe {
+.map-frame .root_daum_roughmap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100%;
+  background: transparent;
+}
+
+.map-frame .root_daum_roughmap .wrap_map,
+.map-frame .root_daum_roughmap .map {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.kakao-static-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  overflow: hidden;
+  background: #eef2e8;
+}
+
+.root_daum_roughmap:not(:empty) ~ .kakao-static-map {
+  display: none;
+}
+
+.kakao-static-map img {
   display: block;
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: cover;
+}
+
+.kakao-map-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  background: #2d8cff;
+  box-shadow: 0 2px 7px rgba(24, 73, 132, 0.32);
+  transform: translate(-50%, -76%) rotate(-45deg);
+}
+
+.kakao-map-pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.kakao-map-open {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px 0 27px;
+  border-radius: 4px;
+  background: rgba(45, 52, 45, 0.84);
+  color: #fff;
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 2px 7px rgba(27, 33, 27, 0.18);
+}
+
+.kakao-map-open::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50% 50% 50% 0;
+  background: #ffec3d;
+  transform: translateY(-58%) rotate(-45deg);
+}
+
+.kakao-map-open::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(45, 52, 45, 0.84);
+  transform: translateY(-62%);
 }
 
 .map-actions {

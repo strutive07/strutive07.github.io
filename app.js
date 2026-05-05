@@ -2,6 +2,10 @@ const WEDDING_AT = new Date("2026-10-24T11:00:00+09:00");
 const MUSIC_VIDEO_ID = "oYXU9LrZnfM";
 const MUSIC_START = 12;
 const MUSIC_END = 102;
+const KAKAO_ROUGHMAP = {
+  timestamp: "1777973986788",
+  key: "2op6espe6wq5"
+};
 
 const galleryImages = Array.from({ length: 9 }, (_, index) => {
   const number = String(index + 1).padStart(2, "0");
@@ -67,6 +71,24 @@ const closeModals = () => {
     modal.hidden = true;
   });
   document.body.style.overflow = "";
+};
+
+const renderKakaoMap = () => {
+  const root = $("[data-kakao-roughmap]");
+  const Lander = window.daum?.roughmap?.Lander;
+  if (!root || !Lander || root.dataset.rendered) return;
+
+  const frame = root.closest(".map-frame");
+  const width = Math.max(280, Math.round(frame?.clientWidth || root.clientWidth || 329));
+  const height = Math.max(140, Math.round(frame?.clientHeight || width * 0.5));
+
+  root.dataset.rendered = "true";
+  new Lander({
+    timestamp: KAKAO_ROUGHMAP.timestamp,
+    key: KAKAO_ROUGHMAP.key,
+    mapWidth: String(width),
+    mapHeight: String(height)
+  }).render();
 };
 
 let youtubePlayer;
@@ -210,4 +232,5 @@ const bindEvents = () => {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+renderKakaoMap();
 bindEvents();
