@@ -616,6 +616,11 @@ img {
   height: 100% !important;
 }
 
+.map-frame .root_daum_roughmap > .wrap_controllers,
+.map-frame .root_daum_roughmap > .cont {
+  display: none !important;
+}
+
 .kakao-static-map {
   position: absolute;
   inset: 0;
