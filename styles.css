@@ -305,31 +305,9 @@ img {
 }
 
 .calendar-section {
-  min-height: 790px;
-  padding-top: 118px;
+  min-height: 720px;
+  padding-top: 96px;
   background: #f7f7f5;
-}
-
-.stacked-date {
-  position: absolute;
-  top: 70px;
-  left: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  color: rgba(167, 186, 131, 0.42);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 19px;
-  line-height: 0.9;
-}
-
-.stacked-date strong {
-  margin: 5px 0;
-  color: rgba(167, 186, 131, 0.72);
-  font-size: 36px;
-  font-weight: 300;
-  line-height: 1;
 }
 
 .date-title {
@@ -342,6 +320,13 @@ img {
   color: #babdb6;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 17px;
+}
+
+.calendar-month {
+  margin: 0 auto 16px;
+  color: #71835d;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .calendar {
@@ -418,6 +403,12 @@ img {
 
 .d-day span {
   color: #71835d;
+}
+
+.d-day i {
+  margin: 0 4px;
+  color: #a8b98b;
+  font-style: normal;
 }
 
 .d-day b {
@@ -597,8 +588,7 @@ img {
   margin: 18px 0 34px;
 }
 
-.map-actions a,
-.share-actions button {
+.map-actions a {
   min-width: 0;
   min-height: 48px;
   display: grid;
@@ -637,43 +627,6 @@ img {
 
 .route-list p:last-child {
   margin-bottom: 0;
-}
-
-.account-section {
-  background: #f8f8f3;
-}
-
-details {
-  margin: 13px auto 0;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 9px 20px rgba(70, 77, 66, 0.07);
-  overflow: hidden;
-}
-
-summary {
-  min-height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #66745b;
-  list-style: none;
-  cursor: pointer;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::after {
-  content: "+";
-  margin-left: 10px;
-  color: #a3aa9d;
-  font-family: Georgia, serif;
-}
-
-details[open] summary::after {
-  content: "−";
 }
 
 .account-row {
@@ -716,46 +669,9 @@ details[open] summary::after {
   font-size: 13px;
 }
 
-.message-section {
-  background: var(--paper);
-}
-
-.message-section h2 {
-  line-height: 1.75;
-}
-
-.message-list {
-  display: grid;
-  gap: 14px;
-  margin: 30px auto 28px;
-  text-align: left;
-}
-
-.message-card {
-  padding: 18px 18px 17px;
-  border-radius: 8px;
-  background: #fafbf6;
-  border: 1px solid #edf0e8;
-}
-
-.message-card p {
-  margin: 0 0 13px;
-  color: #5e635b;
-  line-height: 1.7;
-}
-
-.message-card footer {
-  color: #969c92;
-  font-size: 13px;
-}
-
-.message-card footer b {
-  color: #788a63;
-  font-weight: 400;
-}
-
 .info-section {
   background: #f8f8f3;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 
 .notice-card {
@@ -774,28 +690,6 @@ details[open] summary::after {
 .notice-card p {
   margin: 16px 0 0;
   color: #6f736b;
-}
-
-.closing-section {
-  padding-bottom: calc(90px + env(safe-area-inset-bottom));
-  background: linear-gradient(#fffefa, #eef4e6);
-}
-
-.quote {
-  margin: 0 0 40px;
-  color: #66745b;
-  font-size: 20px;
-  line-height: 1.9;
-}
-
-.share-actions {
-  display: grid;
-  gap: 12px;
-}
-
-.share-actions button {
-  width: 100%;
-  color: #5e6d54;
 }
 
 .modal,
@@ -833,6 +727,14 @@ details[open] summary::after {
   font-weight: 400;
 }
 
+.modal__subtitle {
+  margin: -10px 0 22px;
+  color: #858b80;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .modal__close,
 .lightbox button {
   position: absolute;
@@ -851,6 +753,7 @@ details[open] summary::after {
 .contact-list {
   display: grid;
   gap: 10px;
+  margin-bottom: 26px;
 }
 
 .contact-list a,
@@ -886,58 +789,38 @@ details[open] summary::after {
   font-size: 13px;
 }
 
-.message-form {
+.modal-account {
+  display: grid;
+  gap: 10px;
+}
+
+.modal-account h3 {
+  margin: 10px 0 2px;
+  color: #72865c;
+  font-size: 15px;
+  font-weight: 500;
   text-align: left;
 }
 
-.message-form label {
-  display: block;
-  margin-bottom: 16px;
-}
-
-.message-form label span {
-  display: block;
-  margin-bottom: 7px;
-  color: #74835f;
-  font-size: 13px;
-}
-
-.message-form input,
-.message-form textarea {
-  width: 100%;
-  border: 1px solid #dfe4d6;
+.modal-account .account-row {
+  display: grid;
+  gap: 12px;
+  padding: 15px 14px;
+  border: 1px solid #edf0e8;
   border-radius: 8px;
-  background: #fff;
-  color: #4b5048;
-  outline: none;
+  background: #fbfcf7;
 }
 
-.message-form input {
-  height: 48px;
-  padding: 0 14px;
+.account-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
 }
 
-.message-form textarea {
-  min-height: 132px;
-  resize: vertical;
-  padding: 12px 14px;
-}
-
-.message-form input:focus,
-.message-form textarea:focus {
-  border-color: #a7ba83;
-  box-shadow: 0 0 0 3px rgba(167, 186, 131, 0.18);
-}
-
-.form-note {
-  margin: 0 0 20px;
-  color: #92978d;
-  font-size: 13px;
-  text-align: center;
-}
-
-.message-form .pill-button {
+.account-actions button {
   width: 100%;
+  min-width: 0;
+  height: 38px;
 }
 
 .lightbox {
@@ -981,11 +864,11 @@ details[open] summary::after {
 
 #youtube-player {
   position: fixed;
+  left: 0;
+  bottom: 0;
   width: 1px;
   height: 1px;
-  left: -10px;
-  bottom: -10px;
-  overflow: hidden;
+  border: 0;
   opacity: 0;
   pointer-events: none;
 }
