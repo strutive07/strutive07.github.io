@@ -9,7 +9,14 @@ const KAKAO_ROUGHMAP = {
 
 const galleryImages = Array.from({ length: 9 }, (_, index) => {
   const number = String(index + 1).padStart(2, "0");
-  return `assets/photos/gallery-${number}.jpg`;
+  const versions = {
+    "03": "?v=20260609-2",
+    "05": "?v=20260609-2",
+    "07": "?v=20260609-2",
+    "08": "?v=20260609-3"
+  };
+  const version = versions[number] || "";
+  return `assets/photos/gallery-${number}.jpg${version}`;
 });
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -40,6 +47,42 @@ const copyText = async (text) => {
     input.remove();
     toast("복사되었습니다");
   }
+};
+
+const preventPageZoom = () => {
+  const prevent = (event) => event.preventDefault();
+  const zoomKeys = new Set(["+", "=", "-", "_", "0"]);
+
+  document.addEventListener("gesturestart", prevent, { passive: false });
+  document.addEventListener("gesturechange", prevent, { passive: false });
+  document.addEventListener("gestureend", prevent, { passive: false });
+
+  document.addEventListener("touchmove", (event) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  let lastTouchEnd = 0;
+  document.addEventListener("touchend", (event) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  window.addEventListener("wheel", (event) => {
+    if (event.ctrlKey || event.metaKey) {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  window.addEventListener("keydown", (event) => {
+    if ((event.ctrlKey || event.metaKey) && zoomKeys.has(event.key)) {
+      event.preventDefault();
+    }
+  });
 };
 
 const updateCountdown = () => {
@@ -189,7 +232,13 @@ const bindEvents = () => {
       return;
     }
 
-    if (event.target.closest("[data-kakao-pay]")) {
+    const kakaoPayButton = event.target.closest("[data-kakao-pay]");
+    if (kakaoPayButton) {
+      const payUrl = kakaoPayButton.dataset.kakaoPay;
+      if (payUrl) {
+        window.location.href = payUrl;
+        return;
+      }
       toast("카카오페이 링크는 추후 연결 예정입니다");
       return;
     }
@@ -234,3 +283,4 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 renderKakaoMap();
 bindEvents();
+preventPageZoom();

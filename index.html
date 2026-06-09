@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#e7eedc">
     <meta name="description" content="장원준, 박형은의 모바일 청첩장">
     <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260609-6">
   </head>
   <body>
     <div class="page-shell">
@@ -37,7 +37,7 @@
             <h1>장원준 <span>|</span> 박형은</h1>
             <div class="hero__event">
               <p>2026년 10월 24일 토요일 오전 11시</p>
-              <p>더컨벤션 반포</p>
+              <p>더컨벤션 반포 2층 그랜드볼룸홀</p>
             </div>
           </div>
         </section>
@@ -79,6 +79,8 @@
         </section>
 
         <section class="section family-section">
+          <p class="section-label">FAMILY</p>
+          <h2>혼주 및 가족</h2>
           <div class="family-line">
             <p><span>장기수</span>, <span>송영애</span>의 아들</p>
             <strong>원준</strong><em>WONJUN</em>
@@ -90,8 +92,24 @@
           <button class="pill-button" type="button" data-open-contact>연락하기</button>
         </section>
 
+        <section class="section gallery-section">
+          <p class="section-label">GALLERY</p>
+          <p class="section-subtitle">사진을 누르면 크게 보실 수 있습니다</p>
+          <div class="gallery-grid">
+            <button type="button" data-gallery="0"><img src="assets/photos/gallery-01.jpg" alt="갤러리 사진 1"></button>
+            <button type="button" data-gallery="1"><img src="assets/photos/gallery-02.jpg" alt="갤러리 사진 2"></button>
+            <button type="button" data-gallery="2"><img src="assets/photos/gallery-03.jpg?v=20260609-2" alt="갤러리 사진 3"></button>
+            <button type="button" data-gallery="3"><img src="assets/photos/gallery-04.jpg" alt="갤러리 사진 4"></button>
+            <button type="button" data-gallery="4"><img src="assets/photos/gallery-05.jpg?v=20260609-2" alt="갤러리 사진 5"></button>
+            <button type="button" data-gallery="5"><img src="assets/photos/gallery-06.jpg" alt="갤러리 사진 6"></button>
+            <button type="button" data-gallery="6"><img src="assets/photos/gallery-07.jpg?v=20260609-2" alt="갤러리 사진 7"></button>
+            <button type="button" data-gallery="7"><img src="assets/photos/gallery-08.jpg?v=20260609-3" alt="갤러리 사진 8"></button>
+            <button type="button" data-gallery="8"><img src="assets/photos/gallery-09.jpg" alt="갤러리 사진 9"></button>
+          </div>
+        </section>
+
         <section class="section gift-section">
-          <p class="script-label">Account</p>
+          <p class="script-label">ACCOUNT</p>
           <h2>마음 전하실 곳</h2>
           <p class="gift-message">
             참석이 어려워 직접 축하를 전하지 못하는<br>
@@ -107,7 +125,7 @@
                 <div class="gift-row">
                   <p><strong>신랑 장원준</strong><span>우리은행 1002-756-663457</span></p>
                   <div class="gift-actions">
-                    <button class="pay-button" type="button" data-kakao-pay>pay</button>
+                    <button class="pay-button" type="button" data-kakao-pay="https://qr.kakaopay.com/Ej9FWthbR">pay</button>
                     <button class="copy-button" type="button" data-copy="1002-756-663457">복사</button>
                   </div>
                 </div>
@@ -131,10 +149,10 @@
               <summary>신부측</summary>
               <div class="gift-list">
                 <div class="gift-row">
-                  <p><strong>신부 박형은</strong><span>OO은행 OOOO-OOO-OOOOOO</span></p>
+                  <p><strong>신부 박형은</strong><span>하나은행 233-910431-30807</span></p>
                   <div class="gift-actions">
-                    <button class="pay-button" type="button" data-kakao-pay>pay</button>
-                    <button class="copy-button" type="button" data-copy="OOOO-OOO-OOOOOO">복사</button>
+                    <button class="pay-button" type="button" data-kakao-pay="https://qr.kakaopay.com/Ej8xj9qdW">pay</button>
+                    <button class="copy-button" type="button" data-copy="233-910431-30807">복사</button>
                   </div>
                 </div>
                 <div class="gift-row">
@@ -153,22 +171,6 @@
                 </div>
               </div>
             </details>
-          </div>
-        </section>
-
-        <section class="section gallery-section">
-          <p class="section-label">GALLERY</p>
-          <p class="section-subtitle">사진을 누르면 크게 보실 수 있습니다</p>
-          <div class="gallery-grid">
-            <button type="button" data-gallery="0"><img src="assets/photos/gallery-01.jpg" alt="갤러리 사진 1"></button>
-            <button type="button" data-gallery="1"><img src="assets/photos/gallery-02.jpg" alt="갤러리 사진 2"></button>
-            <button type="button" data-gallery="2"><img src="assets/photos/gallery-03.jpg" alt="갤러리 사진 3"></button>
-            <button type="button" data-gallery="3"><img src="assets/photos/gallery-04.jpg" alt="갤러리 사진 4"></button>
-            <button type="button" data-gallery="4"><img src="assets/photos/gallery-05.jpg" alt="갤러리 사진 5"></button>
-            <button type="button" data-gallery="5"><img src="assets/photos/gallery-06.jpg" alt="갤러리 사진 6"></button>
-            <button type="button" data-gallery="6"><img src="assets/photos/gallery-07.jpg" alt="갤러리 사진 7"></button>
-            <button type="button" data-gallery="7"><img src="assets/photos/gallery-08.jpg" alt="갤러리 사진 8"></button>
-            <button type="button" data-gallery="8"><img src="assets/photos/gallery-09.jpg" alt="갤러리 사진 9"></button>
           </div>
         </section>
 
@@ -216,10 +218,6 @@
             <span>주차</span>
             <p>예식장 주차공간이 협소하고 혼잡이 예상되오니 가급적 대중교통 이용을 부탁드립니다.</p>
           </article>
-          <article class="notice-card">
-            <span>화환</span>
-            <p>축하의 마음만 감사히 받겠습니다. 화환은 정중히 사양하오니 너그러운 양해 부탁드립니다.</p>
-          </article>
         </section>
       </main>
     </div>
@@ -234,8 +232,8 @@
           <a href="tel:01091909426"><span>신부</span><strong>박형은</strong><em>010-9190-9426</em></a>
           <a href="tel:01022071407"><span>신랑 아버님</span><strong>장기수</strong><em>010-2207-1407</em></a>
           <a href="tel:01087656456"><span>신랑 어머님</span><strong>송영애</strong><em>010-8765-6456</em></a>
-          <div class="contact-placeholder"><span>신부 아버님</span><strong>박형주</strong><em>OOO-OOOO-OOOO</em></div>
-          <div class="contact-placeholder"><span>신부 어머님</span><strong>임명순</strong><em>OOO-OOOO-OOOO</em></div>
+          <a href="tel:01088129426"><span>신부 아버님</span><strong>박형주</strong><em>010-8812-9426</em></a>
+          <a href="tel:01041719426"><span>신부 어머님</span><strong>임명순</strong><em>010-4171-9426</em></a>
         </div>
       </div>
     </div>
@@ -258,6 +256,6 @@
       };
     </script>
     <script src="https://t1.kakaocdn.net/kakaomapweb/roughmap/place/prod/207038f2_1774248312945/roughmapLander.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js?v=20260609-5"></script>
   </body>
 </html>

@@ -18,18 +18,21 @@
 
 html {
   scroll-behavior: smooth;
+  touch-action: pan-y;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  touch-action: pan-y;
   background: var(--page);
   color: var(--ink);
   font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   font-size: 15px;
   line-height: 1.75;
   word-break: keep-all;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  line-break: strict;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
 }
@@ -72,7 +75,7 @@ img {
 .hero {
   position: relative;
   min-height: auto;
-  padding: max(50px, env(safe-area-inset-top) + 34px) 22px max(70px, env(safe-area-inset-bottom) + 58px);
+  padding: max(68px, env(safe-area-inset-top) + 48px) 22px max(94px, env(safe-area-inset-bottom) + 74px);
   color: #4f554d;
   background: linear-gradient(#fffefa, #fbfbf7);
   isolation: isolate;
@@ -445,6 +448,10 @@ img {
   background: var(--paper);
 }
 
+.family-section h2 {
+  margin-bottom: 48px;
+}
+
 .family-line {
   margin: 0 auto 30px;
 }
@@ -498,8 +505,8 @@ img {
   margin: 0 0 24px;
   color: #6f8c60;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 19px;
-  font-style: italic;
+  font-size: 36px;
+  font-style: normal;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 1px;
@@ -605,7 +612,7 @@ img {
 
 .gift-row span {
   display: block;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
 }
 
 .gift-actions {
