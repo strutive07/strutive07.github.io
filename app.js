@@ -5,7 +5,7 @@ const MUSIC_END = 102;
 const KAKAO_JS_KEY = "2eade5ad1acf92cced0dd2f60824c158";
 const SHARE_URL = "https://strutive07.github.io/";
 const SHARE_IMAGE_URL = `${SHARE_URL}assets/photos/DOU01338.JPG?v=20260611-1`;
-const MAP_URL = "https://map.kakao.com/link/search/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EB%B0%98%ED%8F%AC";
+const LOCATION_URL = `${SHARE_URL}#location`;
 const KAKAO_SDK_URL = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.5/kakao.min.js";
 const KAKAO_ROUGHMAP = {
   timestamp: "1777973986788",
@@ -308,8 +308,8 @@ const shareKakao = async () => {
         {
           title: "위치 보기",
           link: {
-            mobileWebUrl: MAP_URL,
-            webUrl: MAP_URL
+            mobileWebUrl: LOCATION_URL,
+            webUrl: LOCATION_URL
           }
         }
       ]
