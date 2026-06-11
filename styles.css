@@ -75,7 +75,7 @@ img {
 .hero {
   position: relative;
   min-height: auto;
-  padding: max(68px, env(safe-area-inset-top) + 48px) 22px max(94px, env(safe-area-inset-bottom) + 74px);
+  padding: max(86px, env(safe-area-inset-top) + 60px) 22px max(122px, env(safe-area-inset-bottom) + 96px);
   color: #4f554d;
   background: linear-gradient(#fffefa, #fbfbf7);
   isolation: isolate;
@@ -448,6 +448,10 @@ img {
   background: var(--paper);
 }
 
+.family-section .section-label {
+  margin-bottom: 24px;
+}
+
 .family-section h2 {
   margin-bottom: 48px;
 }
@@ -468,7 +472,7 @@ img {
 }
 
 .family-line strong {
-  margin-right: 4px;
+  margin-right: 8px;
   color: #55614c;
   font-size: 23px;
   font-weight: 500;
@@ -514,9 +518,9 @@ img {
 
 .gift-section h2 {
   margin-bottom: 0;
-  color: #151713;
-  font-size: 20px;
-  font-weight: 600;
+  color: #62665e;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .gift-section h2::after {
@@ -690,14 +694,11 @@ img {
 }
 
 .gallery-section {
-  padding-left: 0;
-  padding-right: 0;
   background: var(--paper);
 }
 
 .gallery-section .section-subtitle {
   margin-bottom: 42px;
-  padding: 0 32px;
 }
 
 .gallery-grid {
@@ -900,7 +901,7 @@ img {
   margin: 0 0 7px;
   color: #72865c;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .route-list p {
@@ -1126,8 +1127,8 @@ img {
 
 @media (max-height: 820px) {
   .hero {
-    padding-top: max(34px, env(safe-area-inset-top) + 24px);
-    padding-bottom: max(44px, env(safe-area-inset-bottom) + 34px);
+    padding-top: max(48px, env(safe-area-inset-top) + 34px);
+    padding-bottom: max(68px, env(safe-area-inset-bottom) + 52px);
   }
 
   .hero__date span {

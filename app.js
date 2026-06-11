@@ -12,7 +12,7 @@ const galleryImages = Array.from({ length: 9 }, (_, index) => {
   const versions = {
     "03": "?v=20260609-2",
     "05": "?v=20260609-2",
-    "07": "?v=20260609-2",
+    "07": "?v=20260611-1",
     "08": "?v=20260609-3"
   };
   const version = versions[number] || "";
