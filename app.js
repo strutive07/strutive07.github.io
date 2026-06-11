@@ -2,6 +2,11 @@ const WEDDING_AT = new Date("2026-10-24T11:00:00+09:00");
 const MUSIC_VIDEO_ID = "oYXU9LrZnfM";
 const MUSIC_START = 12;
 const MUSIC_END = 102;
+const KAKAO_JS_KEY = "2eade5ad1acf92cced0dd2f60824c158";
+const SHARE_URL = "https://strutive07.github.io/";
+const SHARE_IMAGE_URL = `${SHARE_URL}assets/photos/kakao-share.png?v=20260611-1`;
+const MAP_URL = "https://map.kakao.com/link/search/%EB%8D%94%EC%BB%A8%EB%B2%A4%EC%85%98%20%EB%B0%98%ED%8F%AC";
+const KAKAO_SDK_URL = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.5/kakao.min.js";
 const KAKAO_ROUGHMAP = {
   timestamp: "1777973986788",
   key: "2op6espe6wq5"
@@ -224,8 +229,103 @@ const closeLightbox = () => {
   document.body.style.overflow = "";
 };
 
+let kakaoSdkReady;
+
+const loadKakaoSdk = () => {
+  if (window.Kakao) return Promise.resolve(window.Kakao);
+  if (kakaoSdkReady) return kakaoSdkReady;
+
+  kakaoSdkReady = new Promise((resolve, reject) => {
+    const existingScript = document.querySelector(`script[src="${KAKAO_SDK_URL}"]`);
+    const script = existingScript || document.createElement("script");
+    const timeout = window.setTimeout(() => reject(new Error("Kakao SDK timeout")), 8000);
+
+    script.onload = () => {
+      window.clearTimeout(timeout);
+      if (window.Kakao) {
+        resolve(window.Kakao);
+        return;
+      }
+      reject(new Error("Kakao SDK missing"));
+    };
+    script.onerror = () => {
+      window.clearTimeout(timeout);
+      reject(new Error("Kakao SDK load failed"));
+    };
+
+    if (!existingScript) {
+      script.src = KAKAO_SDK_URL;
+      document.head.append(script);
+    }
+  });
+
+  return kakaoSdkReady;
+};
+
+const shareKakao = async () => {
+  if (!KAKAO_JS_KEY) {
+    toast("카카오 JavaScript 키를 설정해주세요");
+    return;
+  }
+
+  let Kakao;
+  try {
+    Kakao = await loadKakaoSdk();
+  } catch {
+    toast("카카오 공유를 불러오지 못했습니다");
+    return;
+  }
+
+  if (!Kakao.isInitialized()) {
+    Kakao.init(KAKAO_JS_KEY);
+  }
+
+  if (!Kakao.Share) {
+    toast("카카오 공유를 불러오지 못했습니다");
+    return;
+  }
+
+  try {
+    Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "장원준 · 박형은 결혼합니다",
+        description: "2026년 10월 24일 토요일 오전 11시\n더컨벤션 반포 2층 그랜드볼룸홀",
+        imageUrl: SHARE_IMAGE_URL,
+        link: {
+          mobileWebUrl: SHARE_URL,
+          webUrl: SHARE_URL
+        }
+      },
+      buttons: [
+        {
+          title: "청첩장 보기",
+          link: {
+            mobileWebUrl: SHARE_URL,
+            webUrl: SHARE_URL
+          }
+        },
+        {
+          title: "위치 보기",
+          link: {
+            mobileWebUrl: MAP_URL,
+            webUrl: MAP_URL
+          }
+        }
+      ]
+    });
+  } catch {
+    toast("카카오톡 공유를 실행할 수 없습니다");
+  }
+};
+
 const bindEvents = () => {
   document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-kakao-share]")) {
+      shareKakao();
+      return;
+    }
+
     const copyButton = event.target.closest("[data-copy]");
     if (copyButton) {
       copyText(copyButton.dataset.copy);

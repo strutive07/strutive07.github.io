@@ -163,6 +163,23 @@ img {
   line-height: 1.55;
 }
 
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 32px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: #fee500;
+  color: #25251e;
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(87, 80, 39, 0.12);
+}
+
 .music-toggle {
   position: absolute;
   z-index: 4;
@@ -916,7 +933,6 @@ img {
 
 .info-section {
   background: #f8f8f3;
-  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 
 .notice-card {
@@ -935,6 +951,15 @@ img {
 .notice-card p {
   margin: 16px 0 0;
   color: #6f736b;
+}
+
+.share-section {
+  background: #fffefa;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
+}
+
+.share-section .section-subtitle {
+  margin-bottom: 0;
 }
 
 .modal,
@@ -1147,6 +1172,11 @@ img {
   .hero__event p {
     margin: 5px 0;
     font-size: 15px;
+  }
+
+  .share-button {
+    min-height: 44px;
+    margin-top: 28px;
   }
 }
 
