@@ -163,7 +163,9 @@ img {
   line-height: 1.55;
 }
 
-.share-button {
+.invite-send-button {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -953,12 +955,12 @@ img {
   color: #6f736b;
 }
 
-.share-section {
+.invite-send-section {
   background: #fffefa;
   padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 
-.share-section .section-subtitle {
+.invite-send-section .section-subtitle {
   margin-bottom: 0;
 }
 
@@ -1174,7 +1176,7 @@ img {
     font-size: 15px;
   }
 
-  .share-button {
+  .invite-send-button {
     min-height: 44px;
     margin-top: 28px;
   }

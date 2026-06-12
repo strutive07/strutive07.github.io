@@ -321,7 +321,7 @@ const shareKakao = async () => {
 
 const bindEvents = () => {
   document.addEventListener("click", (event) => {
-    if (event.target.closest("[data-kakao-share]")) {
+    if (event.target.closest("[data-invite-send]")) {
       shareKakao();
       return;
     }
