@@ -75,7 +75,7 @@ img {
 .hero {
   position: relative;
   min-height: auto;
-  padding: max(86px, env(safe-area-inset-top) + 60px) 22px max(122px, env(safe-area-inset-bottom) + 96px);
+  padding: max(110px, env(safe-area-inset-top) + 84px) 22px max(74px, env(safe-area-inset-bottom) + 56px);
   color: #4f554d;
   background: linear-gradient(#fffefa, #fbfbf7);
   isolation: isolate;
