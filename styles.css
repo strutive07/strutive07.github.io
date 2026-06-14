@@ -76,8 +76,10 @@ img {
   position: relative;
   min-height: auto;
   padding: max(110px, env(safe-area-inset-top) + 84px) 22px max(74px, env(safe-area-inset-bottom) + 56px);
-  color: #4f554d;
-  background: linear-gradient(#fffefa, #fbfbf7);
+  color: #465345;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(199, 219, 182, 0.34), transparent 42%),
+    linear-gradient(180deg, #f5f8ee 0%, #edf4e6 58%, #f8f8f1 100%);
   isolation: isolate;
   overflow: hidden;
 }
@@ -90,7 +92,7 @@ img {
 
 .hero__date p {
   margin: 0;
-  color: #55614c;
+  color: #435c42;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(31px, 7.6vw, 38px);
   font-weight: 500;
@@ -101,7 +103,7 @@ img {
 .hero__date span {
   display: block;
   margin-top: 10px;
-  color: #72865c;
+  color: #6d8559;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 16px;
   font-weight: 600;
@@ -118,7 +120,7 @@ img {
   overflow: hidden;
   border-radius: 8px;
   background: #f4f6ef;
-  box-shadow: 0 10px 24px rgba(91, 106, 77, 0.08);
+  box-shadow: 0 16px 30px rgba(72, 95, 56, 0.13);
 }
 
 .hero__image {
@@ -138,7 +140,7 @@ img {
 
 .hero h1 {
   margin: 0;
-  color: #4d514a;
+  color: #43513f;
   font-size: clamp(19px, 5vw, 23px);
   font-weight: 500;
   line-height: 1.35;
@@ -146,7 +148,7 @@ img {
 
 .hero h1 span {
   margin: 0 12px;
-  color: #a2a79e;
+  color: #93a28b;
   font-weight: 300;
 }
 
@@ -158,7 +160,7 @@ img {
 
 .hero__event p {
   margin: 8px 0;
-  color: #6f736b;
+  color: #64715e;
   font-size: 16px;
   line-height: 1.55;
 }
